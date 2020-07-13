@@ -37,3 +37,12 @@
    I would like to like to see the date requested and approve or reject
 
 ```
+
+**Wireframe**
+----
+
+![image1](Makersbnb/images/Screen Shot 2020-07-13 at 15.00.21.png)
+
+![image2](Makersbnb/images/Screen Shot 2020-07-13 at 15.00.00.png)
+
+![image3](Makersbnb/images/Screen Shot 2020-07-13 at 15.00.47.png)
