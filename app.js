@@ -32,4 +32,6 @@ app.post('/addspace', (req, res) => {
   res.redirect('homepage');
 });
 
+app.get('/space', (req, res) => res.render('space'));
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
