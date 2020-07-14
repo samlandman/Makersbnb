@@ -15,11 +15,21 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('login'));
 
 app.post('/', (req,res) => {
-  console.log(user)
-  console.log(user.password)
-  var response = user.login('test','test123')
+  let body = [];
+  req.on('data', chunk => {
+    body.push(chunk.toString());
+    // body += chunk.toString();
+  });
+  req.on('end', () => {
+    console.log(body.username)
+    console.log(body);
+  });
+  // body = body.split('&');
+  console.log(body);
+  var user_name = "test"
+  var password = "test123"
+  var response = user.login(user_name, password)
   console.log(response)
-  console.log(req.username);
   if (response === true) {
   res.redirect('homepage');
   } else {
