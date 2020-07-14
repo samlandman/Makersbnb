@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3001
+
+// import { User } from './src/User.js';
+
 // var mysql = require('mysql');
 // var session = require('express-session');
 // var bodyParser = require('body-parser');
@@ -12,8 +15,16 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('login'));
 
 app.post('/', (req,res) => {
-  console.log(req.body);
+  // var user = User.new
+  // console.log(user.password)
+  // var response = user.login('test','test123')
+  // console.log(req.username);
+  var response = true
+  if (response === true) {
   res.redirect('homepage');
+  } else {
+    res.redirect('/');
+  };
 });
 
 app.get('/signup', (req, res) => res.render('signup'));
