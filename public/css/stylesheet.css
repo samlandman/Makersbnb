@@ -1,0 +1,9 @@
+.container {
+  &__image {
+    width: 250px;
+    align: left;
+  }
+  &__text {
+    display: inline;
+  }
+}
