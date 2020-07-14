@@ -11,6 +11,11 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => res.render('login'));
 
+app.post('/', (req,res) => {
+  console.log(req.body);
+  res.redirect('homepage');
+});
+
 app.get('/signup', (req, res) => res.render('homepage'));
 
 app.get('/homepage', (req, res) => res.render('homepage'));
