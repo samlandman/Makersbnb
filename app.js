@@ -1,10 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3000
-// var mysql = require('mysql');
-// var session = require('express-session');
-// var bodyParser = require('body-parser');
-// var path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+app.use(logger('dev'));
+
+// require('./server/routes')(app);
+// app.get('*', (req, res) => res.status(200).send({
+//   message: 'Welcome to the beginning of nothingness.',
+// }));
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');

@@ -48,16 +48,30 @@
 ![image3](https://github.com/samlandman/Makersbnb/blob/master/images/Screen%20Shot%202020-07-13%20at%2015.00.47.png)
 
 
-**Instructions**
-----
-Run:
-```
-node app.js
-```
-
 **Thought Process**
 ----
 We're transferring our knowledge of Ruby applications into Javascript.
 
 Our controller is created using JS, Node & Express.
-Our test environment will be in either Jade or Jasmine, when we get to the point of creating it. 
+Our test environment will be in either Jade or Jasmine, when we get to the point of creating it.
+
+There was some confusion over setting up the initial database, and the code we have reflects that. We kept some of the unused code for reference, but our database link is contained in sql.js.
+
+**Instructions**
+----
+Run:
+```
+npm install
+```
+
+```
+node app.js
+```
+**Database**
+----
+The database is located on ElephantSQL, a cloud server. We have accessed this on our local machines through Postico & TablePlus, and linked them to our code in our sql.js file.
+
+To view the current contents of the database, run:
+```
+node sql.js
+```
