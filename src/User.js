@@ -15,4 +15,4 @@ class User{
   };
 };
 
-export { User };
+module.exports = new User()
