@@ -57,6 +57,9 @@ Our test environment will be in either Jade or Jasmine, when we get to the point
 
 There was some confusion over setting up the initial database, and the code we have reflects that. We kept some of the unused code for reference, but our database link is contained in sql.js.
 
+- Tomorrow's priority is integrating the controller & frontend with database, and writing the queries to access the database.
+- Need to add: add & edit functionality
+
 **Instructions**
 ----
 Run:
