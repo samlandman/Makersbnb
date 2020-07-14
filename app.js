@@ -16,7 +16,12 @@ app.post('/', (req,res) => {
   res.redirect('homepage');
 });
 
-app.get('/signup', (req, res) => res.render('homepage'));
+app.get('/signup', (req, res) => res.render('signup'));
+
+app.post('/signup', (req, res) => {
+  console.log(req.body);
+  res.redirect('/');
+});
 
 app.get('/homepage', (req, res) => res.render('homepage'));
 
