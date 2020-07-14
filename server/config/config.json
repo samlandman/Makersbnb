@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "tkwqamri",
+    "password": "XWb6o2y_MnE0JTBhSkWpIGSee0602zh_",
+    "database": "tkwqamri",
+    "port": "5432",
+    "host": "rogue.db.elephantsql.com",
+    "dialect": "postgres"
+
+  },
+  "test": {
+    "username": "tkwqamri",
+    "password": "XWb6o2y_MnE0JTBhSkWpIGSee0602zh_",
+    "database": "tkwqamri",
+    "host": "rogue.db.elephantsql.com",
+    "dialect": "postgres"
+    },
+  "production": {
+    "username": "tkwqamri",
+    "password": "XWb6o2y_MnE0JTBhSkWpIGSee0602zh_",
+    "database": "tkwqamri",
+    "host": "rogue.db.elephantsql.com",
+    "dialect": "postgres"
+    }
+}

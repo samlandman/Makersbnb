@@ -1,5 +1,13 @@
 const express = require('express')
 const app = express()
+// const logger = require('morgan');
+// const bodyParser = require('body-parser');
+// app.use(logger('dev'));
+
+// require('./server/routes')(app);
+// app.get('*', (req, res) => res.status(200).send({
+//   message: 'Welcome to the beginning of nothingness.',
+// }));
 const port = 3001
 
 var user = require('./src/User.js');
