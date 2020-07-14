@@ -15,4 +15,11 @@ app.get('/signup', (req, res) => res.render('homepage'));
 
 app.get('/homepage', (req, res) => res.render('homepage'));
 
+app.get('/addspace', (req, res) => res.render('addspace'));
+
+app.post('/addspace', (req, res) => { 
+  console.log(req.body);
+  res.redirect('homepage');
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
