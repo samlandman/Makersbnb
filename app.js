@@ -15,6 +15,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('login'));
 
 app.post('/', (req,res) => {
+  console.log(process.argv)
   // var user = User.new
   // console.log(user.password)
   // var response = user.login('test','test123')
