@@ -1,14 +1,16 @@
-var pg = require('pg');
-//or native libpq bindings
-//var pg = require('pg').native
-var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
-var client = new pg.Client(conString);
-
 class Spaces {
-  constructor() {}
+  constructor() {
+  }
+    
 
   add(title, description, image, location, pricePerNight) {
+    var pg = require('pg');
+    //or native libpq bindings
+    //var pg = require('pg').native
+    var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
+    var client = new pg.Client(conString);
     console.log("before connecting to client")
+    console.log(client._connected)
     client.connect(function (err) {
       console.log("connected to client")
       if (err) {
@@ -24,12 +26,11 @@ class Spaces {
           // console.log(result);
           // >> output: 2018-08-23T14:02:57.117Z
           console.log("before disconnecting to client")
-
-          client._connected = false ;
-          // client.end();
+          
+          client.end();
           console.log("after disconnecting to client")
-
-        });
+          console.log(client._connected)
+        }); 
     })
   }
 };
