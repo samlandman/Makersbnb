@@ -9,7 +9,7 @@ var app = express()
 // app.get('*', (req, res) => res.status(200).send({
 //   message: 'Welcome to the beginning of nothingness.',
 // }));
-const port = 3001
+const port = 3000
 
 var user = require('./src/User.js');
 
@@ -39,6 +39,12 @@ app.post('/', (req,res) => {
 app.get('/signup', (req, res) => res.render('signup'));
 
 app.post('/signup', (req, res) => {
+  var username = req.body.username
+  var email = req.body.email
+  var password = req.body.password
+  console.log("username"+ username)
+  console.log("email"+ email)
+  console.log("password"+ password)
   console.log(req.body);
   res.redirect('/');
 });
@@ -48,6 +54,12 @@ app.get('/homepage', (req, res) => res.render('homepage'));
 app.get('/addspace', (req, res) => res.render('addspace'));
 
 app.post('/addspace', (req, res) => {
+  var space_name = req.body.space_name
+  var space_image = req.body.space_image
+  var space_desc = req.body.space_desc
+  console.log("name"+ space_name)
+  console.log("image"+ space_image)
+  console.log("desc"+ space_desc)
   console.log(req.body);
   res.redirect('homepage');
 });
