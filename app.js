@@ -12,7 +12,8 @@ const app = express()
 const port = 3001
 
 var user = require('./src/User.js');
-
+var spaceslist = require('./src/spaceslist.js');
+var spacesadd = require('./src/spacesadd.js');
 // var mysql = require('mysql');
 // var session = require('express-session');
 // var bodyParser = require('body-parser');
