@@ -57,9 +57,13 @@ app.post('/addspace', (req, res) => {
   var space_name = req.body.space_name
   var space_image = req.body.space_image
   var space_desc = req.body.space_desc
+  var space_price = req.body.space_price
+  var space_location = req.body.space_location
   console.log("name"+ space_name)
   console.log("image"+ space_image)
   console.log("desc"+ space_desc)
+  console.log("price"+ space_price)
+  console.log("location"+ space_location)
   console.log(req.body);
   res.redirect('homepage');
 });
