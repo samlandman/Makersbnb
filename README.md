@@ -14,7 +14,7 @@
 
 3. As an owner
    So that I can view my spaces
-   I would would like to see the saved space on the website
+   I would like to see the saved space on the website
 
 4. As an owner
    So I can list another property
