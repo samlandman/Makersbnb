@@ -4,6 +4,7 @@ const app = express()
 // const bodyParser = require('body-parser');
 // app.use(logger('dev'));
 
+// API code - you can check back on this in the future!! :) - checkout server/routes/index.js too :) 
 // require('./server/routes')(app);
 // app.get('*', (req, res) => res.status(200).send({
 //   message: 'Welcome to the beginning of nothingness.',
@@ -56,7 +57,7 @@ app.get('/homepage', (req, res) => res.render('homepage'));
 
 app.get('/addspace', (req, res) => res.render('addspace'));
 
-app.post('/addspace', (req, res) => { 
+app.post('/addspace', (req, res) => {
   console.log(req.body);
   res.redirect('homepage');
 });
