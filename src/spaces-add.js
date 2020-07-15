@@ -6,19 +6,29 @@ var client = new pg.Client(conString);
 
 class Spaces {
   constructor() {}
-  add() {
+
+  add(title, description, image, location, pricePerNight) {
+    console.log("before connecting to client")
     client.connect(function (err) {
+      console.log("connected to client")
       if (err) {
         return console.error('could not connect to postgres', err);
       }
-      client.query("INSERT INTO spaces(value) VALUES('seventh');",
+      // client.query("SELECT * FROM spaces", function(err, result) {
+
+      client.query(`INSERT INTO spaces(title, description, image, location, pricePerNight) VALUES('${title}', '${description}', '${image}', '${location}', '${pricePerNight}');`,
         function (err, result) {
           if (err) {
             return console.error('error running query', err);
           }
-          console.log(result);
+          // console.log(result);
           // >> output: 2018-08-23T14:02:57.117Z
-          client.end();
+          console.log("before disconnecting to client")
+
+          client._connected = false ;
+          // client.end();
+          console.log("after disconnecting to client")
+
         });
     })
   }
