@@ -33,7 +33,7 @@ class Spaces {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
-
+    var listOfSpaces = [];
     // loop
     // iterates over the list given out, and turns each line into a space object
 
@@ -47,18 +47,21 @@ class Spaces {
         if(err) {
           return console.error('error running query', err);
         }
-        var array = [];
-        result.rows.forEach(element => array.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
-        console.log(array);
+        result.rows.forEach(element => listOfSpaces.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
+        
         client.end();
+        
       });
-    }
-  )}
+    });
 
+    return listOfSpaces;
+  };
+ 
   static listById(id) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
+    var space = [];
 
     client.connect(function(err) {
       if(err) {
@@ -70,14 +73,14 @@ class Spaces {
           return console.error('error running query', err);
         }
 
-        console.log(result.rows);
+        result.rows.forEach(element => space.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
         client.end();
       });
-    }
-  )}
+    });
+
+    return space;
+  }
 };
-// module.exports = new Spaces()
-// module.exports.add();
 
 module.exports = {
   Spaces:Spaces
