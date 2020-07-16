@@ -48,4 +48,4 @@ class Users {
 
 module.exports = new Users();
 module.exports.add_user();
-module.exports.sign_in();
+// module.exports.sign_in();

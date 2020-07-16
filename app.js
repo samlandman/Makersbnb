@@ -12,8 +12,8 @@ var app = express()
 const port = 3000
 
 var user = require('./src/User.js');
-var spaceslist = require('./src/spaceslist.js');
-var spacesadd = require('./src/spacesadd.js');
+var spaces = require('./src/spaces.js');
+var user1 = require('./src/user_2.js');
 // var mysql = require('mysql');
 // var session = require('express-session');
 // var path = require('path');
@@ -40,13 +40,7 @@ app.post('/', (req,res) => {
 app.get('/signup', (req, res) => res.render('signup'));
 
 app.post('/signup', (req, res) => {
-  var username = req.body.username
-  var email = req.body.email
-  var password = req.body.password
-  console.log("username"+ username)
-  console.log("email"+ email)
-  console.log("password"+ password)
-  console.log(req.body);
+  user1.add_user(req.body.username, req.body.email, req.body.password)
   res.redirect('/');
 });
 
