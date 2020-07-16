@@ -1,6 +1,6 @@
 var express = require('express')
-var session = require('express-session')
 var app = express()
+var cookieSession = require('cookie-session')
 // const logger = require('morgan');
 // const bodyParser = require('body-parser');
 // app.use(logger('dev'));
@@ -24,10 +24,13 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
-app.use(session({secret: 'secret_id', resave: true, saveUninitialized: true, name: 'session_name', genid: (req) => {'session_id'}}));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['Arav', 'Dhara']
+}));
+
 app.set('view engine', 'ejs');
 
-var sess;
 
 app.get('/', (req, res) => res.render('login'));
 
@@ -35,7 +38,6 @@ app.post('/', (req,res) => {
   var response = user.login(req.body.username, req.body.password)
   if (response === true) { 
     req.session.username = req.body.username;
-    console.log("session_username " + req.session.username);
     res.redirect('homepage');
   } 
   else {
@@ -55,7 +57,6 @@ app.get('/homepage', (req, res) => res.render('homepage'));
 app.get('/addspace', (req, res) => res.render('addspace'));
  
 app.post('/addspace', (req, res) => {
-  console.log("session_username_2 " + req.session.username)
   spaces.add(req.body.title, req.body.description, req.body.image, req.body.location, req.body.pricePerNight, req.session.username)
   res.redirect('homepage');
 });
