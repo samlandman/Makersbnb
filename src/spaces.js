@@ -1,7 +1,13 @@
 class Spaces {
-  constructor() {
+  constructor(id, title, description, image, location, pricePerNight, username) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.image = image;
+    this.location = location;
+    this.pricePerNight = pricePerNight;
+    this.username = username;
   }
-    
 
   add(title, description, image, location, pricePerNight) {
     var pg = require('pg');
@@ -44,7 +50,7 @@ class Spaces {
     }
   )}
 
-  list_id(id) {
+  listById(id) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
