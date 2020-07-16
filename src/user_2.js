@@ -1,11 +1,12 @@
 'use strict';
 
 class Users {
-  constructor() {
+  constructor(id) {
+    this.id = id;
   }
 
 
-  add_user(username, email_address, password) {
+  static add_user(username, email_address, password) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
@@ -25,27 +26,36 @@ class Users {
     });
   };
 
-  sign_in(input_1, password) {
+  static sign_in(email_or_username, password) {
   var pg = require('pg');
   var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
   var client = new pg.Client(conString);
+  var user = [];
 
   client.connect(function (err) {
     if (err) {
       return console.error('could not connect to postgres', err);
     }
 
-    client.query(`SELECT id FROM user_table WHERE username = '${input_1}' AND password = '${password}' OR email_address = '${input_1}' AND password = '${password}';`,
+    client.query(`SELECT id, username, email_address FROM user_table WHERE username = '${email_or_username}' AND password = '${password}' OR email_address = '${email_or_username}' AND password = '${password}';`,
       function (err, result) {
         if (err) {
           return console.error('error running query', err);
-        }
-        client.end();
+          }
+          console.log(result)
+          console.log(result.id)
+          result.rows.forEach(element => user.push(element.id));
+          client.end();
+        });
       });
-  });
+    console.log(user);
+    return user;
 };
 };
 
-module.exports = new Users();
-module.exports.add_user();
+module.exports = {
+  Users:Users
+}
+// module.exports = new Users();
+// module.exports.add_user();
 // module.exports.sign_in();
