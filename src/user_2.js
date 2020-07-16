@@ -43,20 +43,13 @@ class Users {
             return console.error('error running query', err);
             }
             result.rows.forEach(element => total = total + element.id);
-            console.log("total" + total);
-            // return total;
             client.end();
-            
-            // async function firstFunction(){
-            //   console.log('waiting...')
-            //   return;
-            // };
         });
     });
-    // async function secondFunction() {
-    //   await firstFunction();
-      console.log("final id" + total);
-      return total;
+
+      setTimeout(function () {
+        return total;
+      }, 5000);
     // };
     
   };
