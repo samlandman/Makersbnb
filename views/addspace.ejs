@@ -1,11 +1,25 @@
+<header>
+  <h1>MakersBnb</h1>
+</header>
+
 <h1>Add a Space</h1>
 
 <div></div>
-
+<section>
 <form action="/addspace" method='post'>
+
   <!-- consistency of names required (space_name) -->
-<input type="text" name="space_name" placeholder="Title" required>
-<input type="text" name="space_image" placeholder="Image" required>
-<input type="text" name="space_desc" placeholder="Description" required>
+<input type="text" maxlength="60" name="space_name" placeholder="Title" required><br />
+<br>
+<input type="text" name="space_image" placeholder="Image" required><br />
+<br>
+<input type="text" maxlength="350" name="space_desc" placeholder="Description" required><br />
+<br>
+<input type="number" name="space_price" placeholder="Price per night" required><br />
+<br>
+<input type="text" name="space_location" placeholder="Location" required><br />
+<br>
 <input type="submit" name="Submit">
+
 </form>
+</section>
