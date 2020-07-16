@@ -54,13 +54,6 @@ app.post('/signup', (req, res) => {
 
 app.get('/homepage', async (req, res) => {
   res.locals.spaces = await spaces.list();
-  // console.log(temp);
-  // setTimeout(function(){
-  //   console.log(temp);
-  // }, 10000);
-  // console.log(spaces.list());
-  // res.locals.spaces = spaces.list();
-  // console.log(res.locals.spaces);
   res.render('homepage');
 });
 
