@@ -29,32 +29,23 @@ class Spaces {
     })
   }
 
-  static list (){
+  static async list(){
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
     var listOfSpaces = [];
-    // loop
-    // iterates over the list given out, and turns each line into a space object
-
 
     client.connect(function(err) {
       if(err) {
         return console.error('could not connect to postgres', err);
       }
-
-      client.query("SELECT * FROM spaces", function(err, result) {
-        if(err) {
-          return console.error('error running query', err);
-        }
-        result.rows.forEach(element => listOfSpaces.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
-        
-        client.end();
-        
-      });
     });
-
-    return listOfSpaces;
+    
+    var result = await client.query("SELECT * FROM spaces") // tell it to wait
+    client.end();
+    result.rows.forEach(element => listOfSpaces.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
+    return listOfSpaces
+    
   };
  
   static listById(id) {
@@ -79,6 +70,10 @@ class Spaces {
     });
 
     return space;
+  };
+
+  static please(){
+    return 1
   }
 };
 
