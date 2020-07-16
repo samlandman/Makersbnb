@@ -82,6 +82,4 @@ class Spaces {
   }
 };
 
-module.exports = {
-  Spaces:Spaces
-}
+module.exports = Spaces;

@@ -1,4 +1,5 @@
 var express = require('express')
+var session = require('express-session')
 var app = express()
 // const logger = require('morgan');
 // const bodyParser = require('body-parser');
@@ -15,7 +16,6 @@ var user = require('./src/User.js');
 var spaces = require('./src/spaces.js');
 var user1 = require('./src/user_2.js');
 // var mysql = require('mysql');
-// var session = require('express-session');
 // var path = require('path');
 
 var bodyParser = require('body-parser')
@@ -24,15 +24,21 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
+app.use(session({secret: 'secret_id', resave: true, saveUninitialized: true, name: 'session_name', genid: (req) => {'session_id'}}));
 app.set('view engine', 'ejs');
+
+var sess;
 
 app.get('/', (req, res) => res.render('login'));
 
 app.post('/', (req,res) => {
   var response = user.login(req.body.username, req.body.password)
-  if (response === true) {
-  res.redirect('homepage');
-  } else {
+  if (response === true) { 
+    req.session.username = req.body.username;
+    console.log("session_username " + req.session.username);
+    res.redirect('homepage');
+  } 
+  else {
     res.redirect('/');
   };
 });
@@ -47,19 +53,10 @@ app.post('/signup', (req, res) => {
 app.get('/homepage', (req, res) => res.render('homepage'));
 
 app.get('/addspace', (req, res) => res.render('addspace'));
-
+ 
 app.post('/addspace', (req, res) => {
-  var space_name = req.body.space_name
-  var space_image = req.body.space_image
-  var space_desc = req.body.space_desc
-  var space_price = req.body.space_price
-  var space_location = req.body.space_location
-  console.log("name"+ space_name)
-  console.log("image"+ space_image)
-  console.log("desc"+ space_desc)
-  console.log("price"+ space_price)
-  console.log("location"+ space_location)
-  console.log(req.body);
+  console.log("session_username_2 " + req.session.username)
+  spaces.add(req.body.title, req.body.description, req.body.image, req.body.location, req.body.pricePerNight, req.session.username)
   res.redirect('homepage');
 });
 
