@@ -25,32 +25,37 @@ class Spaces {
             return console.error('error running query', err);
           }
           client.end();
-        }); 
+        });
     })
   }
 
-  list (){
+  static list (){
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
+
+    // loop
+    // iterates over the list given out, and turns each line into a space object
+
 
     client.connect(function(err) {
       if(err) {
         return console.error('could not connect to postgres', err);
       }
-    
+
       client.query("SELECT * FROM spaces", function(err, result) {
         if(err) {
           return console.error('error running query', err);
         }
-      
-        console.log(result.rows);
+        var array = [];
+        result.rows.forEach(element => array.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
+        console.log(array);
         client.end();
       });
     }
   )}
 
-  listById(id) {
+  static listById(id) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
@@ -59,12 +64,12 @@ class Spaces {
       if(err) {
         return console.error('could not connect to postgres', err);
       }
-    
+
       client.query(`SELECT * FROM spaces where id=${id}`, function(err, result) {
         if(err) {
           return console.error('error running query', err);
         }
-      
+
         console.log(result.rows);
         client.end();
       });
