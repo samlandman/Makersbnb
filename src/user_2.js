@@ -30,27 +30,36 @@ class Users {
   var pg = require('pg');
   var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
   var client = new pg.Client(conString);
-  var user = [];
+  var total = 0;
 
-  client.connect(function (err) {
-    if (err) {
-      return console.error('could not connect to postgres', err);
-    }
+    client.connect(function (err) {
+      if (err) {
+        return console.error('could not connect to postgres', err);
+      }
 
-    client.query(`SELECT id, username, email_address FROM user_table WHERE username = '${email_or_username}' AND password = '${password}' OR email_address = '${email_or_username}' AND password = '${password}';`,
-      function (err, result) {
-        if (err) {
-          return console.error('error running query', err);
-          }
-          console.log(result)
-          console.log(result.id)
-          result.rows.forEach(element => user.push(element.id));
-          client.end();
+      client.query(`SELECT id, username, email_address FROM user_table WHERE username = '${email_or_username}' AND password = '${password}' OR email_address = '${email_or_username}' AND password = '${password}';`,
+        function (err, result) {
+          if (err) {
+            return console.error('error running query', err);
+            }
+            result.rows.forEach(element => total = total + element.id);
+            console.log("total" + total);
+            // return total;
+            client.end();
+            
+            // async function firstFunction(){
+            //   console.log('waiting...')
+            //   return;
+            // };
         });
-      });
-    console.log(user);
-    return user;
-};
+    });
+    // async function secondFunction() {
+    //   await firstFunction();
+      console.log("final id" + total);
+      return total;
+    // };
+    
+  };
 };
 
 module.exports = {
