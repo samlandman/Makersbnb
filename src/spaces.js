@@ -9,7 +9,7 @@ class Spaces {
     this.username = username;
   }
 
-  add(title, description, image, location, pricePerNight) {
+  static add(title, description, image, location, pricePerNight, username) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
@@ -19,7 +19,7 @@ class Spaces {
         return console.error('could not connect to postgres', err);
       }
 
-      client.query(`INSERT INTO spaces(title, description, image, location, pricePerNight) VALUES('${title}', '${description}', '${image}', '${location}', '${pricePerNight}');`,
+      client.query(`INSERT INTO spaces(title, description, image, location, pricePerNight, username) VALUES('${title}', '${description}', '${image}', '${location}', '${pricePerNight}', '${username}');`,
         function (err, result) {
           if (err) {
             return console.error('error running query', err);
@@ -71,5 +71,9 @@ class Spaces {
     }
   )}
 };
-module.exports = new Spaces()
-module.exports.add();
+// module.exports = new Spaces()
+// module.exports.add();
+
+module.exports = {
+  Spaces:Spaces
+}
