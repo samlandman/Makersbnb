@@ -1,4 +1,7 @@
 ## MakersBnB
+MakersBnB is web based app, which allows any user to create an account, view a list of spaces and add a new space. 
+
+This is our first team project as part of Makers Academy (contributors are listed below).
 
 **User Stories**
 ----
@@ -38,6 +41,20 @@
 
 ```
 
+**Assumptions**
+----
+
+- Any user can book any space
+
+- Prices are listed in GBP
+
+- Users will host their images elsewhere
+
+
+**MVC Model**
+----
+![MVC](https://github.com/samlandman/Makersbnb/blob/master/images/image.png)
+
 **Wireframe**
 ----
 
@@ -67,9 +84,18 @@ Run:
 npm install
 ```
 
+To run the server:
+
 ```
 node app.js
 ```
+
+The LocalHost should be used to run this program:
+
+```
+localhost:3000
+```
+
 **Database**
 ----
 The database is located on ElephantSQL, a cloud server. We have accessed this on our local machines through Postico & TablePlus, and linked them to our code in our sql.js file.
@@ -78,3 +104,38 @@ To view the current contents of the database, run:
 ```
 node sql.js
 ```
+
+**Contributors**
+----
+
+@samlandman
+
+@mattybwoy
+
+@mirimichaelson
+
+@aravzpatel
+
+@Dhara-95
+
+**Follow up**
+----
+
+- We would have liked to finish user stories 7 and 8 
+
+- Currently the request button redirects to the homepage - ideally this would send a form to owner of the space to approve/reject. 
+
+- Currently the site doesn't allow the owner to add dates to a space, we would have liked to add this functionality 
+
+- We would have liked to add more tests (both unit and feature tests)
+
+- We can currently add a new space and view it, but we cannot update or delete (CRUD pattern)
+
+- We can currently add a new user and login, however cannot update or delete (CRUD pattern)
+
+
+<p align="center">
+    <a href="https://https://makers.tech/">
+        <img src="https://img.shields.io/badge/-created%40makers-red"
+            alt="Made @ Makers"></a>
+</p>
