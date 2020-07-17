@@ -5,7 +5,7 @@ var cookieSession = require('cookie-session')
 // const bodyParser = require('body-parser');
 // app.use(logger('dev'));
 
-// API code - you can check back on this in the future!! :) - checkout server/routes/index.js too :) 
+// API code - you can check back on this in the future!! :) - checkout server/routes/index.js too :)
 // require('./server/routes')(app);
 // app.get('*', (req, res) => res.status(200).send({
 //   message: 'Welcome to the beginning of nothingness.',
@@ -21,9 +21,8 @@ var user1 = require('./src/user_2.js');
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
-})); 
+}));
 app.use(express.json());
-app.use(express.static(__dirname + '/public'));
 app.use(cookieSession({
   name: 'session',
   keys: ['Arav', 'Dhara']
@@ -37,10 +36,10 @@ app.get('/', (req, res) => res.render('login'));
 
 app.post('/', (req,res) => {
   var response = user.login(req.body.username, req.body.password)
-  if (response === true) { 
+  if (response === true) {
     req.session.username = req.body.username;
     res.redirect('homepage');
-  } 
+  }
   else {
     res.redirect('/');
   };
@@ -59,7 +58,7 @@ app.get('/homepage', async (req, res) => {
 });
 
 app.get('/addspace', (req, res) => res.render('addspace'));
- 
+
 app.post('/addspace', (req, res) => {
   spaces.add(req.body.title, req.body.description, req.body.image, req.body.location, req.body.pricePerNight, req.session.username)
   res.redirect('homepage');
