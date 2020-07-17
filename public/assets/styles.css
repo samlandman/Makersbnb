@@ -80,3 +80,20 @@ body {
   /* background-color: rgb(0, 255, 234); */
   font-weight: bold;
 }
+.addaspace input[type="submit"] {
+  width: 10%;
+  padding: 15px;
+  background-color: #febf63;
+  /* background-color: #535b63; */
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+}
+.addaspace input[type="submit"]:hover {
+  background-color: #f08a5d;
+  /* background-color: #679b9b; */
+  /* background-color: rgb(0, 255, 234); */
+  font-weight: bold;
+}
