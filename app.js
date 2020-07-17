@@ -67,4 +67,10 @@ app.post('/addspace', (req, res) => {
 
 app.get('/space/', (req, res) => res.render('space'));
 
+app.get('/space/:space_id_for_site', async (req,res) => {
+  res.locals.space = await spaces.listById(req.params.space_id_for_site);
+  console.log(res.locals.space)
+  res.render('space')
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
