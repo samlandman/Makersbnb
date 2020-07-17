@@ -45,3 +45,7 @@
   background-color: rgb(0, 255, 234);
   font-weight: bold;
 };
+
+.background {
+  width: 100%;
+}
