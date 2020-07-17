@@ -58,11 +58,11 @@ This is our first team project as part of Makers Academy (contributors are liste
 **Wireframe**
 ----
 
-![image1](https://github.com/samlandman/Makersbnb/blob/master/images/Screen%20Shot%202020-07-13%20at%2015.00.21.png)
+![image1](https://github.com/samlandman/Makersbnb/blob/master/public/images/Screen%20Shot%202020-07-13%20at%2015.00.21%202.png)
 
-![image2](https://github.com/samlandman/Makersbnb/blob/master/images/Screen%20Shot%202020-07-13%20at%2015.00.00.png)
+![image2](https://github.com/samlandman/Makersbnb/blob/master/public/images/Screen%20Shot%202020-07-13%20at%2015.00.00%202.png)
 
-![image3](https://github.com/samlandman/Makersbnb/blob/master/images/Screen%20Shot%202020-07-13%20at%2015.00.47.png)
+![image3](https://github.com/samlandman/Makersbnb/blob/master/public/images/Screen%20Shot%202020-07-13%20at%2015.00.47%202.png)
 
 
 **Thought Process**
@@ -70,12 +70,7 @@ This is our first team project as part of Makers Academy (contributors are liste
 We're transferring our knowledge of Ruby applications into Javascript.
 
 Our controller is created using JS, Node & Express.
-Our test environment will be in either Jade or Jasmine, when we get to the point of creating it.
-
-There was some confusion over setting up the initial database, and the code we have reflects that. We kept some of the unused code for reference, but our database link is contained in sql.js.
-
-- Tomorrow's priority is integrating the controller & frontend with database, and writing the queries to access the database.
-- Need to add: add & edit functionality
+Our test environment will be in Jasmine. 
 
 **Instructions**
 ----
