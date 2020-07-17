@@ -32,10 +32,10 @@
 <h1>Spaces</h1>
 <container class='container'>
   <% spaces.map((spaces) => { %>
-  <a display='left' align='left' href="/space">
+  <a display='left' align='left' href="/space/<%= spaces.id %>">
   <img alt=spaces.image src=<%= spaces.image %> width=270" height="150">
   <div>
-  <a display='inline' align='left' href="/space"> <%= spaces.title %></a>
+  <a display='inline' align='left' href="/space/<%= spaces.id %>"> <%= spaces.title %></a>
   <h2 display='inline' maxlength="100"> <%= spaces.description %></h2>
   <h3 display='inline'> £<%= spaces.pricePerNight %> Per Night</h3>
   </div>

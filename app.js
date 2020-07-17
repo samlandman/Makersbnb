@@ -65,7 +65,7 @@ app.post('/addspace', (req, res) => {
   res.redirect('homepage');
 });
 
-app.get('/space/', (req, res) => res.render('space'));
+// app.get('/space/', (req, res) => res.render('space'));
 
 app.get('/space/:space_id_for_site', async (req,res) => {
   res.locals.space = await spaces.listById(req.params.space_id_for_site);
