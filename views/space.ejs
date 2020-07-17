@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <link href="/public/assets/styles.css" rel="stylesheet" type="text/css" />
+  <link href="/public/assets/calendar.css" rel="stylesheet" type="text/css" />
 </head>
 
 <h1>MakersBnB</h1>
@@ -11,25 +12,102 @@
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cedarville+Cursive&family=Courier+Prime&family=Cutive+Mono&family=Gloria+Hallelujah&family=Nova+Mono&display=swap" rel="stylesheet">
 <div></div>
 
-<center><%= space[0].title %></center>
+<center><h1><%= space[0].title %></h1></center>
 <img width='100%' src=<%=space[0].image%>>
 <div>
-  <center><%= space[0].description%></center>
-  <center>Price Per Night: £<%=space[0].pricePerNight%></center>
+  <center><h1><%= space[0].description%></h1></center>
+  <center><h1>Price Per Night: £<%=space[0].pricePerNight%></h1></center>
 </div>
 
 <div>
-  <h2>Request a date</h2>
+  <h1>Request a date</h1>
 </div>
-<select name="date" id="date">
+<!-- <select name="date" id="date">
   <option value="01/07/20">01/07/20</option>
   <option value="02/07/20">02/07/20</option>
   <option value="03/07/20">03/07/20</option>
 </select>
 <form action='/homepage' method=“get”>
 <button type=“submit”>Request</button>
-</form>
+</form> -->
 
 
-<a href="https://www.google.co.uk/maps/dir//Makers,+50+Commercial+St,+Spitalfields,+London+E1+6LT/@51.51736,-0.0755167,533m/">Get Directions</a>
+
+
+<!-- (thanks https://codepen.io/alexoliverwd/pen/bHhBI?editors=1000 )-->
+
+<div class="calendar">
+
+  <div class="col leftCol">
+    <div class="content">
+      <h1 class="date">Friday<span>September 12th</span></h1>
+      <div class="notes">
+        <p>
+          <!-- <form action='/homepage' method=“get”>
+            <button type=“submit”>Request</button>
+          </form> -->
+          <a href="/homepage" colour='white'>Request</a> <br />
+          <br />
+          <a href="https://www.google.co.uk/maps/dir//Makers,+50+Commercial+St,+Spitalfields,+London+E1+6LT/@51.51736,-0.0755167,533m/">Get Directions</a>
+        </p>
+        <ul class="noteList">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col rightCol">
+    <div class="content">
+      <h2 class="year">2020</h2>
+      <ul class="months">
+        <li><a href="#" title="Jan" data-value="1">Jan</a></li>
+        <li><a href="#" title="Feb" data-value="2">Feb</a></li>
+        <li><a href="#" title="Mar" data-value="3">Mar</a></li>
+        <li><a href="#" title="Apr" data-value="4">Apr</a></li>
+        <li><a href="#" title="May" data-value="5">May</a></li>
+        <li><a href="#" title="Jun" data-value="6">Jun</a></li>
+        <li><a href="#" title="Jul" data-value="7">Jul</a></li>
+        <li><a href="#" title="Aug" data-value="8">Aug</a></li>
+        <li><a href="#" title="Sep" data-value="9" class="selected">Sep</a></li>
+        <li><a href="#" title="Oct" data-value="10">Oct</a></li>
+        <li><a href="#" title="Nov" data-value="11">Nov</a></li>
+        <li><a href="#" title="Dec" data-value="12">Dec</a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="weekday">
+        <li><a href="#" title="Mon" data-value="1">Mon</a></li>
+        <li><a href="#" title="Tue" data-value="2">Tue</a></li>
+        <li><a href="#" title="Wed" data-value="3">Wed</a></li>
+        <li><a href="#" title="Thu" data-value="4">Thu</a></li>
+        <li><a href="#" title="Fri" data-value="5">Fri</a></li>
+        <li><a href="#" title="Say" data-value="6">Sat</a></li>
+        <li><a href="#" title="Sun" data-value="7">Sun</a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="days">
+        <script>
+          for( var _i = 1; _i <= 31; _i += 1 ){
+            var _addClass = '';
+            if( _i === 12 ){ _addClass = ' class="selected"'; }
+            
+            switch( _i ){
+              case 8:
+              case 10:
+              case 27:
+                _addClass = ' class="event"';
+              break;
+            }
+
+            document.write( '<li><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
+          }
+        </script>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+</div>
+
 </html>
