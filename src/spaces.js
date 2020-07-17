@@ -48,7 +48,7 @@ class Spaces {
     
   };
  
-  static listById(id) {
+  static async listById(id) {
     var pg = require('pg');
     var conString = "postgres://tkwqamri:XWb6o2y_MnE0JTBhSkWpIGSee0602zh_@rogue.db.elephantsql.com:5432/tkwqamri" //Can be found in the Details page
     var client = new pg.Client(conString);
@@ -58,16 +58,11 @@ class Spaces {
       if(err) {
         return console.error('could not connect to postgres', err);
       }
-
-      client.query(`SELECT * FROM spaces where id=${id}`, function(err, result) {
-        if(err) {
-          return console.error('error running query', err);
-        }
-
-        result.rows.forEach(element => space.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
-        client.end();
-      });
     });
+
+    var result = await client.query(`SELECT * FROM spaces where id=${id}`)
+    client.end();
+    result.rows.forEach(element => space.push( new Spaces (element.id, element.title, element.description, element.image, element.location, element.pricepernight, element.username)));
 
     return space;
   };

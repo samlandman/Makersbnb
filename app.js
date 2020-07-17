@@ -12,9 +12,9 @@ var cookieSession = require('cookie-session')
 // }));
 const port = 3000
 
-var user = require('./src/User.js');
+// var user = require('./src/User.js');
 var spaces = require('./src/spaces.js');
-var user1 = require('./src/user_2.js');
+var user = require('./src/user_2.js');
 // var mysql = require('mysql');
 // var path = require('path');
 
@@ -34,9 +34,9 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => res.render('login'));
 
-app.post('/', (req,res) => {
-  var response = user.login(req.body.username, req.body.password)
-  if (response === true) {
+app.post('/', async (req,res) => {
+  var response = await user.login(req.body.username, req.body.password)
+  if (response === true) { 
     req.session.username = req.body.username;
     res.redirect('homepage');
   }
@@ -48,12 +48,13 @@ app.post('/', (req,res) => {
 app.get('/signup', (req, res) => res.render('signup'));
 
 app.post('/signup', (req, res) => {
-  user1.add_user(req.body.username, req.body.email, req.body.password)
+  user.add_user(req.body.username, req.body.email, req.body.password)
   res.redirect('/');
 });
 
 app.get('/homepage', async (req, res) => {
   res.locals.spaces = await spaces.list();
+  console.log(res.locals.spaces);
   res.render('homepage');
 });
 
@@ -64,6 +65,12 @@ app.post('/addspace', (req, res) => {
   res.redirect('homepage');
 });
 
-app.get('/space', (req, res) => res.render('space'));
+app.get('/space/', (req, res) => res.render('space'));
+
+app.get('/space/:space_id_for_site', async (req,res) => {
+  res.locals.space = await spaces.listById(req.params.space_id_for_site);
+  console.log(res.locals.space)
+  res.render('space')
+});
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
