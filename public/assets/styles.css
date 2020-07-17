@@ -1,5 +1,6 @@
 body {
   font-family: 'Amatic SC', cursive;
+  margin: 0;
 }
 
 .logo {
@@ -16,6 +17,7 @@ body {
 }
 .background {
     width: 100%;
+    height: 100%;
     position: absolute;
   z-index: -1;
 }
