@@ -1,36 +1,44 @@
 <header>
   <a display='left' align='left' href="/homepage">
-    <h1>MakersBnb</h1>
   </a>
   <link href="/public/assets/styles.css" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cedarville+Cursive&family=Courier+Prime&family=Cutive+Mono&family=Gloria+Hallelujah&family=Nova+Mono&display=swap" rel="stylesheet">
 </header>
-<br>
-<br>
-<br>
-<h1>Add a Space</h1>
-
-<div></div>
-<section>
-<form action="/addspace" method='post'>
-
-  <!-- consistency of names required (space_name) -->
-<input type="text" maxlength="60" name="title" placeholder="Title" required><br />
-<br>
-<input type="text" name="image" placeholder="Image" required><br />
-<br>
-<textarea id="description" name="description" placeholder="Description" rows="4" cols="50" maxlength="350">
-</textarea><br />
-<br>
-<input type="number" name="pricePerNight" placeholder="Price per night" required><br />
-<br>
-<input type="text" name="location" placeholder="Location" required><br />
-<br>
-<div class="addaspace" >
-<input type="submit" name="Submit">
-</div>
 
 
+<body>
+  <section>
+    <img class="logo" src="/public/images/logo.png" alt="">
+    <img class="background" src="/public/images/travel-illustration-full.jpg" alt="">
+  <div class="login-form">
+    <h1>Add A Space</h1>
 
-</form>
+    <section>
+    <form action="/addspace" method='post'>
+
+      <!-- consistency of names required (space_name) -->
+    <input type="text" maxlength="60" name="title" placeholder="Title" required><br />
+    <br>
+    <input type="text" name="image" placeholder="Image" required><br />
+    <br>
+    <textarea id="description" name="description" placeholder="Description" rows="4" cols="35" maxlength="350">
+    </textarea><br />
+    <br>
+    <input type="number" name="pricePerNight" placeholder="Price per night" required><br />
+    <br>
+    <input type="text" name="location" placeholder="Location" required><br />
+    <br>
+    <div class="addaspace" >
+    <input type="submit" name="Submit">
+    </div>
+
+
+
+    </form>
+    </section>
+
+
+
+  </div>
 </section>
+</body>

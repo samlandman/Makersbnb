@@ -1,5 +1,6 @@
 body {
   font-family: 'Amatic SC', cursive;
+  /* background-color: #A7B8F7; */
 }
 
 .logo {
@@ -7,6 +8,42 @@ body {
   width: 50px;
   left: 50%;
   top: 30%;
+}
+
+.logo_homepage {
+  position: absolute;
+  width: 50px;
+  left: 4%;
+  /* top: %; */
+}
+
+.space_button {
+  width: 100px;
+  font-size: 1.5rem;
+  position: relative;
+  right: 20px;
+  top: 40px;
+  background-color: #f08a5d;
+
+}
+.purple {
+  background-color: #f7c5a8;
+  width: 100%;
+  height: 110px;
+}
+
+.spaces_heading {
+  position: relative;
+  text-align: center;
+  margin: 70px;
+  font-size: 9rem;
+  color: #f08a5d;
+}
+.MakersHeading {
+  position: absolute;
+  left: 10%;
+  font: bold;
+  color: #f08a5d;
 }
 
 .logo-navbar {
@@ -81,12 +118,16 @@ body {
   font-weight: bold;
 }
 .addaspace input[type="submit"] {
-  width: 10%;
-  padding: 15px;
+  position: relative;
+  width: 100px;
+  top: 35px;
+  left: 90px;
+  text-align: center;
+  /* padding: 15px; */
   background-color: #febf63;
   /* background-color: #535b63; */
   border: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   cursor: pointer;
   font-weight: bold;
   color: #ffffff;
@@ -96,4 +137,10 @@ body {
   /* background-color: #679b9b; */
   /* background-color: rgb(0, 255, 234); */
   font-weight: bold;
+}
+
+.container {
+  position: relative;
+  left: 100px;
+
 }
