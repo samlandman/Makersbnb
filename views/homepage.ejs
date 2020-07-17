@@ -10,26 +10,28 @@
 <body>
 
   <nav class="navbar">
+    <div class="purple">
+
     <div class="container-fluid">
       <div class="navbar-header">
-        <img class="logo" src="/public/images/logo.png" alt="">
-        <h1> MakersBnB </h1>
+        <img class="logo_homepage" src="/public/images/logo.png" alt="">
+        <h1 class="MakersHeading"> MakersBnB </h1>
       </div>
       <ul class="nav navbar-nav">
         <form align="right" action='/addspace' method=“get”>
-          <button type=“submit”>Add a Space</button>
+          <button class="space_button" type=“submit”>Add a Space</button>
         </form>
       </ul>
+    </div>
     </div>
   </nav>
 
 
 
 
-
 <div></div>
 
-<h1>Spaces</h1>
+ <h1 class="spaces_heading">Spaces</h1>
 <container class='container'>
   <% spaces.map((spaces) => { %>
   <a display='left' align='left' href="/space/<%= spaces.id %>">
@@ -43,4 +45,3 @@
   <% }); %>
   </a>
   </container>
-
